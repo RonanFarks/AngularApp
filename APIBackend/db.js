@@ -1,10 +1,10 @@
 const sql = require('mssql');
 
 const config = {
-    user: 'RonanF',
-    password: '123',
-    server: 'NBDB0012\\SQL2022', // e.g., localhost
-    database: 'TEST',
+    user: 'Your Username',
+    password: 'Your password',
+    server: 'Your Server Name', // e.g., localhost
+    database: 'Your Database',
     options: {
         encrypt: true, // Use encryption for Azure SQL (optional)
         trustServerCertificate: true, // Needed for self-signed certificates
