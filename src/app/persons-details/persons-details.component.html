@@ -1,0 +1,117 @@
+<!-- add-person.component.html -->
+<div class="add-person-container">
+    <h2>Persons Details</h2>
+  
+    <button class="add-account-button" (click)="addAccount()">Add Account</button> <!-- Add Button -->
+
+    <form (ngSubmit)="onSubmit()" #personForm="ngForm">
+      <!-- ID Number Field -->
+      <div class="form-group">
+        <label for="id_number">ID Number:</label>
+        <input
+          type="text"
+          id="id_number"
+          name="id_number"
+          [(ngModel)]="person.id_number"
+          required
+          #id_number="ngModel"
+          class="form-control"
+        />
+        <div *ngIf="id_number.invalid && id_number.touched" class="error">
+          ID Number is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="name">name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          [(ngModel)]="person.name"
+          required
+          #name="ngModel"
+          class="form-control"
+        />
+        <div *ngIf="surname.invalid && surname.touched" class="error">
+          Surname is required.
+        </div>
+      </div>
+
+      <!-- Surname Field -->
+      <div class="form-group">
+        <label for="surname">surname:</label>
+        <input
+          type="text"
+          id="surname"
+          name="surname"
+          [(ngModel)]="person.surname"
+          required
+          #surname="ngModel"
+          class="form-control"
+        />
+        <div *ngIf="surname.invalid && surname.touched" class="error">
+          Surname is required.
+        </div>
+      </div>
+  
+      <!-- Account Number Field -->
+      <div class="form-group">
+        <label for="account_number">Account Number:</label>
+        <input
+          type="text"
+          id="account_number"
+          name="account_number"
+          [(ngModel)]="person.account_number"
+          required
+          #account_number="ngModel"
+          class="form-control"
+        />
+        <div *ngIf="account_number.invalid && account_number.touched" class="error">
+          Account Number is required.
+        </div>
+      </div>
+  
+      <!-- Submit Button -->
+      <button type="submit" [disabled]="personForm.invalid" class="btn btn-primary">
+        Submit
+      </button>
+    </form>
+
+      <!-- Accounts Listing -->
+  <div class="accounts-listing">
+    <h3>Accounts</h3>
+    <table class="table table-bordered table-hover" *ngIf="accounts && accounts.length > 0; else noAccounts">
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th>Person Code</th>
+          <th>Account Number</th>
+          <th>Balance</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let account of accounts; let i = index">
+          <td>{{ account.code }}</td>
+          <td>{{ account.person_code }}</td>
+          <td>{{ account.account_number }}</td>
+          <td>{{ account.outstanding_balance }}</td>
+          <td>
+            <div class="btn-group">
+              <!-- View Button -->
+              <button class="btn btn-view btn-sm" (click)="viewAccount(account)">View</button>
+              <!-- Delete Button -->
+              <button class="btn btn-delete btn-sm" (click)="deleteAccount(account.account_number)">Delete</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ng-template #noAccounts>
+      <p>No accounts found.</p>
+    </ng-template>
+  </div>
+  </div>
+  

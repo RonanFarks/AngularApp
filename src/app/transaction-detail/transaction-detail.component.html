@@ -1,0 +1,97 @@
+<!-- add-transaction.component.html -->
+<div class="add-transaction-container">
+    <h2>Transaction Details</h2>
+  
+    <form (ngSubmit)="onSubmit()" #transactionForm="ngForm">
+  
+      <div class="form-group">
+        <label for="account_code">Account Code:</label>
+        <input
+          type="text"
+          id="account_code"
+          name="account_code"
+          [(ngModel)]="transaction.account_code"
+          required
+          #account_code="ngModel"
+          class="form-control"
+        />
+        <div *ngIf="account_code.invalid && account_code.touched" class="error">
+          Account Code is required.
+        </div>
+      </div>
+  
+      <!-- Transaction Date Field -->
+      <div class="form-group">
+        <label for="transaction_date">Transaction Date:</label>
+        <input
+          type="datetime-local"
+          id="transaction_date"
+          name="transaction_date"
+          [(ngModel)]="transaction.transaction_date"
+          required
+          #transaction_date="ngModel"
+          class="form-control"
+        />
+        <div *ngIf="transaction_date.invalid && transaction_date.touched" class="error">
+          Transaction Date is required.
+        </div>
+      </div>
+
+    <!-- Capture Date Field -->
+    <div class="form-group">
+        <label for="capture_date">Capture Date:</label>
+        <input
+          type="datetime-local"
+          id="capture_date"
+          name="capture_date"
+          [(ngModel)]="transaction.capture_date"
+          required
+          #capture_date="ngModel"
+          class="form-control"
+        />
+        <div *ngIf="capture_date.invalid && capture_date.touched" class="error">
+          Capture Date is required.
+        </div>
+      </div>
+
+    <!-- Amount Field -->
+    <div class="form-group">
+        <label for="amount">Amount:</label>
+        <input
+          type="text"
+          id="amount"
+          name="amount"
+          [(ngModel)]="transaction.amount"
+          required
+          #amount="ngModel"
+          class="form-control"
+        />
+        <div *ngIf="amount.invalid && amount.touched" class="error">
+          Amount is required.
+        </div>
+      </div>
+
+    <!-- Description Field -->
+    <div class="form-group">
+        <label for="description">Description:</label>
+        <input
+          type="text"
+          id="description"
+          name="description"
+          [(ngModel)]="transaction.description"
+          required
+          #description="ngModel"
+          class="form-control"
+        />
+        <div *ngIf="description.invalid && description.touched" class="error">
+          Description is required.
+        </div>
+      </div>
+  
+      <!-- Submit Button -->
+      <button type="submit" [disabled]="transactionForm.invalid" class="btn btn-primary">
+        Submit
+      </button>
+    </form>
+  </div>
+  

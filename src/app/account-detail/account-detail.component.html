@@ -1,0 +1,104 @@
+<!-- add-person.component.html -->
+<div class="add-account-container">
+  <h2>Account Details</h2>
+
+  <button class="add-transaction-button" (click)="addTransaction()">Add Transaction</button> <!-- Add Button -->
+
+  <form (ngSubmit)="onSubmit()" #accountForm="ngForm">
+
+    <div class="form-group">
+      <label for="person_code">Person Code:</label>
+      <input
+        type="text"
+        id="person_code"
+        name="person_code"
+        [(ngModel)]="account.person_code"
+        required
+        #person_code="ngModel"
+        class="form-control"
+      />
+      <div *ngIf="person_code.invalid && person_code.touched" class="error">
+        Person Code is required.
+      </div>
+    </div>
+
+    <!-- Surname Field -->
+    <div class="form-group">
+      <label for="account_number">Account Number:</label>
+      <input
+        type="text"
+        id="account_number"
+        name="account_number"
+        [(ngModel)]="account.account_number"
+        required
+        #outstanding_balance="ngModel"
+        class="form-control"
+      />
+      <div *ngIf="account_number.invalid && account_number.touched" class="error">
+        Account Number is required.
+      </div>
+    </div>
+
+        <!-- Account Number Field -->
+        <div class="form-group">
+          <label for="outstanding_balance">Outstanding Balance:</label>
+          <input
+            type="text"
+            id="outstanding_balance"
+            name="outstanding_balance"
+            [(ngModel)]="account.outstanding_balance"
+            required
+            #account_number="ngModel"
+            class="form-control"
+          />
+          <div *ngIf="outstanding_balance.invalid && outstanding_balance.touched" class="error">
+            Account Number is required.
+          </div>
+        </div>
+
+    <!-- Submit Button -->
+    <button type="submit" [disabled]="accountForm.invalid" class="btn btn-primary">
+      Submit
+    </button>
+  </form>
+
+    <!-- Accounts Listing -->
+<div class="transactions-listing">
+  <h3>Transactions</h3>
+  <table class="table table-bordered table-hover" *ngIf="transactions && transactions.length > 0; else noTransactions">
+    <thead>
+      <tr>
+        <th>Code</th>
+        <th>Account Code</th>
+        <th>Transaction Date</th>
+        <th>Capture Date</th>
+        <th>Amount</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transactions of transactions; let i = index">
+        <td>{{ transactions.code }}</td>
+        <td>{{ transactions.account_code }}</td>
+        <td>{{ transactions.transaction_date }}</td>
+        <td>{{ transactions.capture_date }}</td>
+        <td>{{ transactions.amount }}</td>
+        <td>{{ transactions.description }}</td>
+        <td>
+          <div class="btn-group">
+            <!-- View Button -->
+            <button class="btn btn-view btn-sm" (click)="viewTransaction(transactions)">View</button>
+            <!-- Delete Button -->
+            <button class="btn btn-delete btn-sm" (click)="deleteTransaction(account.account_number)">Delete</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noTransactions>
+    <p>No transactions found.</p>
+  </ng-template>
+</div>
+</div>

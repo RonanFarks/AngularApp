@@ -1,0 +1,121 @@
+/* General Container Styling */
+.listing-container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f1f9ff; /* Light blue background */
+    font-family: 'Arial', sans-serif;
+  }
+
+  /* Add Person Button Styling */
+.add-person-button {
+  display: block;
+  margin: 0 auto 20px auto; /* Centered button with margin below */
+  padding: 10px 20px;
+  background-color: #3b82f6; /* Green background */
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+  
+  h2 {
+    text-align: center;
+    color: #1e3a8a; /* Dark blue text color */
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Table Styling */
+  .listing-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .listing-table th, .listing-table td {
+    padding: 12px;
+    text-align: left;
+    font-size: 1rem;
+  }
+  
+  .listing-table th {
+    background-color: #3b82f6; /* Blue header background */
+    color: white;
+    font-weight: bold;
+  }
+  
+  .listing-table td {
+    border-bottom: 1px solid #e0e7ff; /* Light blue border */
+  }
+  
+  .listing-table tr:nth-child(even) {
+    background-color: #f3f4f6; /* Light grey background for even rows */
+  }
+  
+  /* Button Styling */
+  button {
+    padding: 8px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #3b82f6; /* Blue hover effect */
+    color: white;
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
+  /* Button Styles for Edit/Delete */
+  button:first-child {
+    background-color: #60a5fa; /* Lighter blue for Edit */
+    color: white;
+  }
+  
+  button:first-child:hover {
+    background-color: #3b82f6; /* Darker blue for Edit hover */
+  }
+  
+  button:last-child {
+    background-color: #ef4444; /* Red for Delete */
+    color: white;
+  }
+  
+  button:last-child:hover {
+    background-color: #dc2626; /* Darker red for Delete hover */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .listing-container {
+      width: 90%;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  
+    .listing-table th, .listing-table td {
+      font-size: 0.9rem;
+    }
+  
+    button {
+      padding: 6px 12px;
+    }
+  }
+  

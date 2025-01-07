@@ -1,0 +1,55 @@
+.header {
+  display: flex;
+  align-items: center; /* Ensures vertical alignment of all items */
+  padding: var(--content-padding);
+  box-shadow: 0px 5px 40px var(--shadow-color);
+}
+
+.content {
+  padding: var(--content-padding);
+}
+
+.brand-name {
+  display: flex;
+  align-items: center; /* Ensures all items in the brand name section are centered */
+  justify-content: space-between; /* Space between navigation and login button */
+  padding: 1rem;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navigation {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center; /* Vertically align navigation links with the login button */
+}
+
+.nav-item {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: bold;
+  padding: 0 1rem;
+}
+
+.nav-item:hover {
+  color: #0056b3;
+}
+
+.brand-logo {
+  height: 50px;
+  margin-right: 1rem;
+}
+
+.login-button {
+  margin-left: auto; /* Pushes the login button to the far right */
+  display: flex;
+  align-items: center; /* Centers icon and text */
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: bold;
+  padding: 0 1rem;
+}
+
+.login-button:hover {
+  color: #0056b3;
+}

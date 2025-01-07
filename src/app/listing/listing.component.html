@@ -1,0 +1,30 @@
+<div class="listing-container">
+    <h2>Persons Listing</h2>
+  
+    <button class="add-person-button" (click)="addPerson()">Add Person</button> <!-- Add Button -->
+
+    <table class="listing-table">
+      <thead>
+        <tr>
+          <th>id_number</th>
+          <th>name</th>
+          <th>surname</th>
+          <th>account_number</th>
+          <th>Actions</th>  <!-- Column header for the action buttons -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of items">
+          <td>{{ item.id_number }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.surname }}</td>
+          <td>{{ item.account_number }}</td>
+          <td>
+            <button (click)="viewItem(item)">View</button>  <!-- Added View button -->
+            <button (click)="deleteItem(item.id_number)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
